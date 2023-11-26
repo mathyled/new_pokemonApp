@@ -1,32 +1,34 @@
-const sanitizedPokemon = require("../controllers/pokemons.controllers")
-const axiosAPI = require("../axios.config")
-class PokemonsService {
+// const sanitizePokemonList = require("../controllers/pokemons.controllers")
+// const axiosAPI = require("../axios.config")
+// class PokemonsService {
 
-    constructor(){
-        this.pokemons = [],
-        this.generate()
-    }
+//     constructor(){
+//         this.pokemons = [],
+//         this.generate()
+//     }
 
-    async generate(){
-        const response = await axiosAPI("/pokemon");
-        const pokemons = await response.data.results;
-        this.pokemons = await Promise.all(sanitizedPokemon(pokemons));
-        return  this.pokemons
-    }
-   async find(){
-        return this.pokemons
-    }
+//     async generate(){
+//         const pokemons =  (await axiosAPI("/pokemon/?limit=200")).data.results;
+//         this.pokemons = await Promise.all(sanitizePokemonList(pokemons));
+//         return  this.pokemons
+//     }
+//    async find(){
+//         return this.pokemons
+//     }
+//     async findByName(name){
+//         return this.pokemons.filter((p) => p.name.includes(name));
+//     }
 
-    findOne(id){
-        return this.pokemons.find( (el) => el.id == id)
-    }
+//     findOne(id){
+//         return this.pokemons.find( (el) => el.id == id)
+//     }
 
-    create(){}
+//     create(){}
 
-    update(){}
+//     update(){}
 
-    delete(){}
-}
+//     delete(){}
+// }
 
 
-module.exports = PokemonsService
+// module.exports = PokemonsService
