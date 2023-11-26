@@ -1,12 +1,21 @@
 require("dotenv").config();
-const { port } = process.env;
+const { port, DB_URL } = process.env;
 const express = require('express');
 const app = express();
 // const app = require("express")()
 const routerApi = require("./routes");
 const sequelize = require("./db");
+const  pg  = require("pg");
 
+// const pool = new pg.Pool({
+//   connectionString: DB_URL
+// })
 // app.use(express.json());
+
+// app.get("/", async (req, res) => {
+//   const result = await pool.query(Date.now())
+//   res.json("result")
+// })
 routerApi(app);
 
 const main = async () => {
