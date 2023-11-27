@@ -8,7 +8,8 @@ const sequelize = require("./db");
 const  pg  = require("pg");
 
 const pool = new pg.Pool({
-  connectionString: DB_URL
+  connectionString: DB_URL,
+  // ssl: true
 })
 // app.use(express.json());
 
