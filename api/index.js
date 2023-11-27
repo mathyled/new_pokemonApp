@@ -21,12 +21,12 @@ app.get("/", async (req, res) => {
   console.error('error #%d', error)
  }
 })
-routerApi(app);
+// routerApi(app);
 
 const main = async () => {
   try {
     // await sequelize.authenticate();
-    await sequelize.sync({force: true}) 
+    // await sequelize.sync({force: true}) 
     app.listen(port, () => {
       console.log(`app listening on port ${port}`);
     });
