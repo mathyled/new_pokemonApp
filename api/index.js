@@ -7,15 +7,19 @@ const routerApi = require("./routes");
 const sequelize = require("./db");
 const  pg  = require("pg");
 
-// const pool = new pg.Pool({
-//   connectionString: DB_URL
-// })
+const pool = new pg.Pool({
+  connectionString: DB_URL
+})
 // app.use(express.json());
 
-// app.get("/", async (req, res) => {
-//   const result = await pool.query(Date.now())
-//   res.json("result")
-// })
+app.get("/", async (req, res) => {
+ try {
+  const result = await pool.query('SELECT NOW()')
+  res.json(result.rows[0])
+ } catch (error) {
+  console.error('error #%d', error)
+ }
+})
 routerApi(app);
 
 const main = async () => {
